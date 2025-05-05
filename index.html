@@ -36,19 +36,13 @@
             />
           </a>
         </h1>
-        <div class="season-switch">
-          <button class="season-switch__btn" data-season="spring">春</button>
-          <button class="season-switch__btn" data-season="summer">夏</button>
-          <button class="season-switch__btn" data-season="autumn">秋</button>
-          <button class="season-switch__btn" data-season="winter">冬</button>
-        </div>
         <nav class="header__nav">
           <ul class="header__nav-list">
             <li><a href="#story">ストーリー</a></li>
             <li><a href="#features">特徴</a></li>
-            <li><a href="#skills">スキルアップ</a></li>
-            <li><a href="#staff">スタッフ</a></li>
+            <li><a href="#flow">利用の流れ</a></li>
             <li><a href="#activities">活動報告</a></li>
+            <li><a href="#staff">スタッフ</a></li>
             <li><a href="#access">アクセス</a></li>
             <li><a href="#recruitment">募集要項</a></li>
           </ul>
@@ -72,9 +66,9 @@
           <ul class="mobile-menu__list">
             <li><a href="#story">ストーリー</a></li>
             <li><a href="#features">特徴</a></li>
-            <li><a href="#skills">スキルアップ</a></li>
-            <li><a href="#staff">スタッフ</a></li>
+            <li><a href="#flow">利用の流れ</a></li>
             <li><a href="#activities">活動報告</a></li>
+            <li><a href="#staff">スタッフ</a></li>
             <li><a href="#access">アクセス</a></li>
             <li><a href="#recruitment">募集要項</a></li>
           </ul>
@@ -91,9 +85,12 @@
         <div class="hero__bg">
           <div class="hero__pattern" aria-hidden="true"></div>
           <picture>
-            <source media="(max-width: 767px)" srcset="img/hero-sp.jpg" />
+            <source
+              media="(max-width: 767px)"
+              srcset="img/A caring female staff member smiling and guiding01.jpg"
+            />
             <img
-              src="img/hero-pc.jpg"
+              src="img/spacious room inside a supportive workplace.jpg"
               alt="笑顔でものづくりに取り組む様子"
               class="hero__img"
             />
@@ -103,7 +100,7 @@
           <h2 class="hero__title" data-splitting>
             あなたのチャレンジに、<br />あたたかなサポートを。
           </h2>
-          <p class="hero__subtitle">就労支援B型 × Seasonal Inspiration</p>
+          <p class="hero__subtitle">"働く"も"居場所"も、この場所から始まる。</p>
           <div class="hero__buttons">
             <a href="#contact" class="btn btn--large btn--secondary"
               >まずは見学予約</a
@@ -126,7 +123,10 @@
           <div class="story__container">
             <div class="story__item">
               <div class="story__image">
-                <img src="img/story-1.jpg" alt="代表者の家族写真" />
+                <img
+                  src="img/A caring female staff member smiling and guiding03.jpg"
+                  alt="代表者の家族写真"
+                />
               </div>
               <div class="story__content">
                 <h3 class="story__title">法人設立の背景</h3>
@@ -138,7 +138,7 @@
             <div class="story__item story__item--reverse">
               <div class="story__image">
                 <img
-                  src="img/story-2.jpg"
+                  src="img/A caring female staff member smiling and guiding02.jpg"
                   alt="利用者とスタッフが談笑する様子"
                 />
               </div>
@@ -151,7 +151,10 @@
             </div>
             <div class="story__item">
               <div class="story__image">
-                <img src="img/story-3.jpg" alt="地域の方々との交流イベント" />
+                <img
+                  src="img/A caring female staff member smiling and guiding04.jpg"
+                  alt="地域の方々との交流イベント"
+                />
               </div>
               <div class="story__content">
                 <h3 class="story__title">地域との関わり</h3>
@@ -259,74 +262,141 @@
         ></div>
       </section>
 
-      <!-- スキルアップセクション -->
-      <section id="skills" class="section skills">
+      <!-- 活動報告セクション -->
+      <section id="activities" class="section activities">
         <div class="section__inner">
-          <h2 class="section__title"><span class="en">Skills</span>作業内容</h2>
-          <p class="section__lead">
-            自分のペースで取り組める様々な作業をご用意しています。<br />生活リズムの安定、スキルアップ、工賃獲得の喜びを目指します。
-          </p>
-          <div class="swiper skills-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="skill-card">
-                  <div class="skill-card__image">
-                    <img src="img/skill-pc.jpg" alt="PC作業の様子" />
-                  </div>
-                  <div class="skill-card__content">
-                    <h3 class="skill-card__title">PC作業</h3>
-                    <p class="skill-card__text">
-                      データ入力や簡単なPC操作など、パソコンを使った作業があります。初心者の方でも丁寧に指導します。
-                    </p>
-                  </div>
-                </div>
+          <h2 class="section__title">
+            <span class="en">Activities</span>活動報告
+          </h2>
+          <div class="timeline">
+            <div class="timeline__item">
+              <div class="timeline__date">
+                <span class="timeline__month">4</span>
+                <span class="timeline__year">2025</span>
               </div>
-              <div class="swiper-slide">
-                <div class="skill-card">
-                  <div class="skill-card__image">
-                    <img src="img/skill-light.jpg" alt="軽作業の様子" />
-                  </div>
-                  <div class="skill-card__content">
-                    <h3 class="skill-card__title">軽作業</h3>
-                    <p class="skill-card__text">
-                      シール貼り・袋詰め・封入など、軽作業を中心に提供しています。自分のペースで取り組めます。
-                    </p>
-                  </div>
+              <div class="timeline__content">
+                <div class="timeline__image">
+                  <img
+                    src="img/A person harvesting vegetables.jpg"
+                    alt="春の花見イベント"
+                  />
                 </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="skill-card">
-                  <div class="skill-card__image">
-                    <img
-                      src="img/skill-outdoor.jpg"
-                      alt="農作業・外作業の様子"
-                    />
-                  </div>
-                  <div class="skill-card__content">
-                    <h3 class="skill-card__title">農作業・外作業</h3>
-                    <p class="skill-card__text">
-                      季節に応じた農作業や屋外での軽作業も行います。体を動かしながら働きたい方におすすめです。
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="skill-card">
-                  <div class="skill-card__image">
-                    <img src="img/skill-craft.jpg" alt="季節の制作活動の様子" />
-                  </div>
-                  <div class="skill-card__content">
-                    <h3 class="skill-card__title">季節の制作活動</h3>
-                    <p class="skill-card__text">
-                      季節に合わせた作品づくりや販売活動を通して、創造性を育み、達成感を味わいます。
-                    </p>
-                  </div>
+                <div class="timeline__text">
+                  <h3 class="timeline__title">
+                    春の花見イベントを開催しました
+                  </h3>
+                  <p class="timeline__description">
+                    近隣の公園で桜を鑑賞しながらランチ会を実施。みんなで春の訪れを楽しみました。
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+
+            <div class="timeline__item">
+              <div class="timeline__date">
+                <span class="timeline__month">3</span>
+                <span class="timeline__year">2025</span>
+              </div>
+              <div class="timeline__content">
+                <div class="timeline__image">
+                  <img
+                    src="img/developmental disability working on a laptop.jpg"
+                    alt="新しいPC作業の導入"
+                  />
+                </div>
+                <div class="timeline__text">
+                  <h3 class="timeline__title">新しいPC作業を導入しました</h3>
+                  <p class="timeline__description">
+                    データ入力の新規案件を受注。より多くの利用者さんがPC作業にチャレンジしています。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline__item">
+              <div class="timeline__date">
+                <span class="timeline__month">2</span>
+                <span class="timeline__year">2025</span>
+              </div>
+              <div class="timeline__content">
+                <div class="timeline__image">
+                  <img src="img/friendly staff members.jpg" alt="地域交流会" />
+                </div>
+                <div class="timeline__text">
+                  <h3 class="timeline__title">地域交流会を開催しました</h3>
+                  <p class="timeline__description">
+                    地域の方々をお招きして交流会を実施。手作り作品の展示や販売を行いました。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline__item">
+              <div class="timeline__date">
+                <span class="timeline__month">1</span>
+                <span class="timeline__year">2025</span>
+              </div>
+              <div class="timeline__content">
+                <div class="timeline__image">
+                  <img
+                    src="img/Close-up view of hands performing.jpg"
+                    alt="冬の制作活動"
+                  />
+                </div>
+                <div class="timeline__text">
+                  <h3 class="timeline__title">冬の制作活動を行いました</h3>
+                  <p class="timeline__description">
+                    手作りキャンドルや小物の制作を通して、冬の季節を楽しみました。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline__item">
+              <div class="timeline__date">
+                <span class="timeline__month">12</span>
+                <span class="timeline__year">2024</span>
+              </div>
+              <div class="timeline__content">
+                <div class="timeline__image">
+                  <img
+                    src="img/folding pamphlets and inserting them into envelopes.jpg"
+                    alt="封入作業の様子"
+                  />
+                </div>
+                <div class="timeline__text">
+                  <h3 class="timeline__title">
+                    封入作業の新規受注がありました
+                  </h3>
+                  <p class="timeline__description">
+                    地元企業からのDM発送作業を新規受注。丁寧な作業が評価されています。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline__item">
+              <div class="timeline__date">
+                <span class="timeline__month">11</span>
+                <span class="timeline__year">2024</span>
+              </div>
+              <div class="timeline__content">
+                <div class="timeline__image">
+                  <img
+                    src="img/A caring female staff member smiling and guiding04.jpg"
+                    alt="ボランティア活動"
+                  />
+                </div>
+                <div class="timeline__text">
+                  <h3 class="timeline__title">
+                    地域清掃ボランティアに参加しました
+                  </h3>
+                  <p class="timeline__description">
+                    地域の清掃活動に参加。環境美化に貢献しながら、地域の方々との交流を深めました。
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -339,7 +409,7 @@
           </h2>
           <div class="staff__header">
             <img
-              src="img/staff-team.jpg"
+              src="img/friendly staff members.jpg"
               alt="スタッフ一同"
               class="staff__team-img"
             />
@@ -353,7 +423,10 @@
           <div class="staff__grid">
             <div class="staff-card">
               <div class="staff-card__image">
-                <img src="img/staff-1.jpg" alt="田中 智子 - 施設長" />
+                <img
+                  src="img/A caring female staff member smiling and guiding01.jpg"
+                  alt="田中 智子 - 施設長"
+                />
               </div>
               <div class="staff-card__info">
                 <h3 class="staff-card__name">田中 智子</h3>
@@ -365,7 +438,10 @@
             </div>
             <div class="staff-card">
               <div class="staff-card__image">
-                <img src="img/staff-2.jpg" alt="鈴木 健太 - 職業指導員" />
+                <img
+                  src="img/A person using a wheelchair participating.jpg"
+                  alt="鈴木 健太 - 職業指導員"
+                />
               </div>
               <div class="staff-card__info">
                 <h3 class="staff-card__name">鈴木 健太</h3>
@@ -377,7 +453,10 @@
             </div>
             <div class="staff-card">
               <div class="staff-card__image">
-                <img src="img/staff-3.jpg" alt="佐藤 美咲 - 生活支援員" />
+                <img
+                  src="img/A caring female staff member smiling and guiding02.jpg"
+                  alt="佐藤 美咲 - 生活支援員"
+                />
               </div>
               <div class="staff-card__info">
                 <h3 class="staff-card__name">佐藤 美咲</h3>
@@ -390,85 +469,6 @@
           </div>
         </div>
         <div class="section__decoration" aria-hidden="true"></div>
-      </section>
-
-      <!-- 活動報告セクション -->
-      <section id="activities" class="section activities">
-        <div class="section__inner">
-          <h2 class="section__title">
-            <span class="en">Activities</span>活動報告
-          </h2>
-          <div class="activities__filter">
-            <button class="activities__filter-btn is-active" data-filter="all">
-              すべて
-            </button>
-            <button class="activities__filter-btn" data-filter="skill">
-              スキル
-            </button>
-            <button class="activities__filter-btn" data-filter="event">
-              イベント
-            </button>
-            <button class="activities__filter-btn" data-filter="season">
-              シーズン
-            </button>
-          </div>
-          <div class="activities__grid">
-            <div class="activity-item" data-category="season">
-              <div class="activity-item__image">
-                <img src="img/activity-1.jpg" alt="春の花見イベント" />
-              </div>
-              <div class="activity-item__content">
-                <p class="activity-item__date">2025.04.05</p>
-                <h3 class="activity-item__title">
-                  春の花見イベントを開催しました
-                </h3>
-                <p class="activity-item__text">
-                  近隣の公園で桜を鑑賞しながらランチ会を実施。みんなで春の訪れを楽しみました。
-                </p>
-                <span class="activity-item__tag">シーズン</span>
-              </div>
-            </div>
-            <div class="activity-item" data-category="skill">
-              <div class="activity-item__image">
-                <img src="img/activity-2.jpg" alt="新しいPC作業の導入" />
-              </div>
-              <div class="activity-item__content">
-                <p class="activity-item__date">2025.03.15</p>
-                <h3 class="activity-item__title">新しいPC作業を導入しました</h3>
-                <p class="activity-item__text">
-                  データ入力の新規案件を受注。より多くの利用者さんがPC作業にチャレンジしています。
-                </p>
-                <span class="activity-item__tag">スキル</span>
-              </div>
-            </div>
-            <div class="activity-item" data-category="event">
-              <div class="activity-item__image">
-                <img src="img/activity-3.jpg" alt="地域交流会" />
-              </div>
-              <div class="activity-item__content">
-                <p class="activity-item__date">2025.02.20</p>
-                <h3 class="activity-item__title">地域交流会を開催しました</h3>
-                <p class="activity-item__text">
-                  地域の方々をお招きして交流会を実施。手作り作品の展示や販売を行いました。
-                </p>
-                <span class="activity-item__tag">イベント</span>
-              </div>
-            </div>
-            <div class="activity-item" data-category="season">
-              <div class="activity-item__image">
-                <img src="img/activity-4.jpg" alt="冬の制作活動" />
-              </div>
-              <div class="activity-item__content">
-                <p class="activity-item__date">2025.01.15</p>
-                <h3 class="activity-item__title">冬の制作活動を行いました</h3>
-                <p class="activity-item__text">
-                  手作りキャンドルや小物の制作を通して、冬の季節を楽しみました。
-                </p>
-                <span class="activity-item__tag">シーズン</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       <!-- アクセスセクション -->
@@ -503,7 +503,10 @@
               <div class="access__item">
                 <h3 class="access__subtitle">施設内部</h3>
                 <div class="access__facility">
-                  <img src="img/facility.jpg" alt="施設内部の様子" />
+                  <img
+                    src="img/A cozy break area in a disability support facility01.jpg"
+                    alt="施設内部の様子"
+                  />
                 </div>
               </div>
             </div>
@@ -517,64 +520,97 @@
           <h2 class="section__title">
             <span class="en">Recruitment</span>募集要項
           </h2>
-          <div class="accordion">
-            <div class="accordion__item">
-              <button class="accordion__header">
-                <span class="accordion__icon" aria-hidden="true">
-                  <img src="img/icon-work.svg" alt="" />
-                </span>
-                <h3 class="accordion__title">仕事内容</h3>
-                <span class="accordion__arrow"></span>
-              </button>
-              <div class="accordion__content">
-                <p>
-                  内職作業（シール貼り・袋詰め・封入など）、<br />PC作業、農作業・外作業、季節の制作活動など
-                </p>
+          <div class="recruitment__lead">
+            <p>
+              就労継続支援B型事業所として、障がいのある方の「働く」をサポートします。<br />あなたのペースで安心して働ける環境づくりを大切にしています。
+            </p>
+          </div>
+          <div class="recruitment__grid">
+            <div class="recruitment-card">
+              <div class="recruitment-card__header">
+                <div class="recruitment-card__icon">
+                  <img src="img/icon-work.svg" alt="" aria-hidden="true" />
+                </div>
+                <h3 class="recruitment-card__title">仕事内容</h3>
+              </div>
+              <div class="recruitment-card__content">
+                <ul class="recruitment-card__list">
+                  <li>内職作業（シール貼り・袋詰め・封入など）</li>
+                  <li>PC作業（データ入力・簡単な入力作業）</li>
+                  <li>農作業・外作業（季節に応じた活動）</li>
+                  <li>季節の制作活動（小物作りなど）</li>
+                </ul>
               </div>
             </div>
-            <div class="accordion__item">
-              <button class="accordion__header">
-                <span class="accordion__icon" aria-hidden="true">
-                  <img src="img/icon-time.svg" alt="" />
-                </span>
-                <h3 class="accordion__title">勤務条件</h3>
-                <span class="accordion__arrow"></span>
-              </button>
-              <div class="accordion__content">
-                <p>
-                  時間：10:00〜15:00（休憩1時間）<br />週1回〜週5回まで相談可能<br />送迎：守口市、寝屋川市、摂津市、門真市
-                </p>
+
+            <div class="recruitment-card">
+              <div class="recruitment-card__header">
+                <div class="recruitment-card__icon">
+                  <img src="img/icon-time.svg" alt="" aria-hidden="true" />
+                </div>
+                <h3 class="recruitment-card__title">勤務条件</h3>
+              </div>
+              <div class="recruitment-card__content">
+                <div class="recruitment-card__item">
+                  <h4 class="recruitment-card__subtitle">勤務時間</h4>
+                  <p>10:00〜15:00（休憩1時間）</p>
+                </div>
+                <div class="recruitment-card__item">
+                  <h4 class="recruitment-card__subtitle">勤務日数</h4>
+                  <p>週1回〜週5回まで相談可能</p>
+                </div>
+                <div class="recruitment-card__item">
+                  <h4 class="recruitment-card__subtitle">送迎エリア</h4>
+                  <p>守口市、寝屋川市、摂津市、門真市</p>
+                </div>
               </div>
             </div>
-            <div class="accordion__item">
-              <button class="accordion__header">
-                <span class="accordion__icon" aria-hidden="true">
-                  <img src="img/icon-qualification.svg" alt="" />
-                </span>
-                <h3 class="accordion__title">応募資格</h3>
-                <span class="accordion__arrow"></span>
-              </button>
-              <div class="accordion__content">
-                <p>
-                  障害者手帳、自立支援医療受給者証をお持ちの方<br />自主通所は大阪府全域対応
-                </p>
+
+            <div class="recruitment-card">
+              <div class="recruitment-card__header">
+                <div class="recruitment-card__icon">
+                  <img
+                    src="img/icon-qualification.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </div>
+                <h3 class="recruitment-card__title">応募資格</h3>
+              </div>
+              <div class="recruitment-card__content">
+                <div class="recruitment-card__item">
+                  <p>以下のいずれかをお持ちの方</p>
+                  <ul class="recruitment-card__list">
+                    <li>障害者手帳</li>
+                    <li>自立支援医療受給者証</li>
+                  </ul>
+                </div>
+                <div class="recruitment-card__note">
+                  <p>※自主通所は大阪府全域対応</p>
+                </div>
               </div>
             </div>
-            <div class="accordion__item">
-              <button class="accordion__header">
-                <span class="accordion__icon" aria-hidden="true">
-                  <img src="img/icon-money.svg" alt="" />
-                </span>
-                <h3 class="accordion__title">工賃</h3>
-                <span class="accordion__arrow"></span>
-              </button>
-              <div class="accordion__content">
-                <p>
-                  時給<span class="highlight">400円〜</span
-                  ><br />大阪府平均の約2倍以上
-                </p>
+
+            <div class="recruitment-card recruitment-card--highlight">
+              <div class="recruitment-card__header">
+                <div class="recruitment-card__icon">
+                  <img src="img/icon-money.svg" alt="" aria-hidden="true" />
+                </div>
+                <h3 class="recruitment-card__title">工賃</h3>
+              </div>
+              <div class="recruitment-card__content">
+                <div class="recruitment-card__money">
+                  <span class="recruitment-card__amount">400</span>
+                  <span class="recruitment-card__unit">円〜</span>
+                </div>
+                <p class="recruitment-card__caption">大阪府平均の約2倍以上</p>
               </div>
             </div>
+          </div>
+          <div class="recruitment__cta">
+            <a href="#contact" class="btn btn--large btn--secondary"
+              >まずは見学・相談する</a
+            >
           </div>
         </div>
         <div
@@ -706,13 +742,13 @@
             <ul class="footer__nav-list">
               <li><a href="#story">ストーリー</a></li>
               <li><a href="#features">特徴</a></li>
-              <li><a href="#skills">スキルアップ</a></li>
-              <li><a href="#staff">スタッフ</a></li>
+              <li><a href="#flow">利用の流れ</a></li>
+              <li><a href="#activities">活動報告</a></li>
             </ul>
           </div>
           <div class="footer__nav-column">
             <ul class="footer__nav-list">
-              <li><a href="#activities">活動報告</a></li>
+              <li><a href="#staff">スタッフ</a></li>
               <li><a href="#access">アクセス</a></li>
               <li><a href="#recruitment">募集要項</a></li>
               <li><a href="#contact">お問い合わせ</a></li>

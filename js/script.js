@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // 文字分割アニメーション用の初期化
   Splitting();
 
-  // 季節切り替え機能
-  initSeasonSwitch();
+  // 季節切り替え機能は削除
+  // initSeasonSwitch();
 
   // スクロールアニメーション
   initScrollReveal();
@@ -27,19 +27,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // ハンバーガーメニューの制御
   initMobileMenu();
 
-  // アコーディオンの制御
-  initAccordion();
+  // アコーディオン機能は削除（募集要項の変更に伴い不要に）
+  // initAccordion();
 
-  // アクティビティフィルター
-  initActivityFilter();
+  // アクティビティフィルター機能は削除
+  // initActivityFilter();
 
   // ページトップへ戻るボタン
   initPageTopButton();
 });
 
 /**
- * 季節切替機能
+ * 季節切替機能（削除済み）
  */
+/*
 function initSeasonSwitch() {
   const seasonBtns = document.querySelectorAll(".season-switch__btn");
   const body = document.body;
@@ -68,10 +69,12 @@ function initSeasonSwitch() {
     });
   });
 }
+*/
 
 /**
- * 季節変更時のアニメーション
+ * 季節変更時のアニメーション（削除済み）
  */
+/*
 function animateSeasonChange(season) {
   // 季節に応じたカラー
   let seasonColor;
@@ -122,6 +125,7 @@ function animateSeasonChange(season) {
     });
   });
 }
+*/
 
 /**
  * ScrollRevealの初期化
@@ -321,89 +325,6 @@ function initMobileMenu() {
 
     // アクセシビリティ
     this.setAttribute("aria-expanded", this.classList.contains("is-active"));
-  });
-}
-
-/**
- * アコーディオンの制御
- */
-function initAccordion() {
-  const accordionItems = document.querySelectorAll(".accordion__item");
-
-  accordionItems.forEach((item) => {
-    const header = item.querySelector(".accordion__header");
-
-    header.addEventListener("click", function () {
-      // 現在の状態を取得
-      const isActive = item.classList.contains("is-active");
-
-      // すべてのアイテムをクローズ
-      accordionItems.forEach((i) => i.classList.remove("is-active"));
-
-      // クリックされたアイテムをトグル
-      if (!isActive) {
-        item.classList.add("is-active");
-
-        // アコーディオンの内容をアニメーション
-        anime({
-          targets: item.querySelector(".accordion__content"),
-          height: [0, item.querySelector(".accordion__content").scrollHeight],
-          duration: 300,
-          easing: "easeOutQuad",
-        });
-      }
-    });
-  });
-}
-
-/**
- * アクティビティフィルター
- */
-function initActivityFilter() {
-  const filterBtns = document.querySelectorAll(".activities__filter-btn");
-  const activityItems = document.querySelectorAll(".activity-item");
-
-  // 初期状態ですべてのボタンをアクティブ
-  document
-    .querySelector('.activities__filter-btn[data-filter="all"]')
-    .classList.add("is-active");
-
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const filterValue = this.getAttribute("data-filter");
-
-      // フィルターボタンのアクティブ状態を更新
-      filterBtns.forEach((b) => b.classList.remove("is-active"));
-      this.classList.add("is-active");
-
-      // アクティビティアイテムを表示/非表示
-      activityItems.forEach((item) => {
-        if (
-          filterValue === "all" ||
-          item.getAttribute("data-category") === filterValue
-        ) {
-          item.style.display = "flex";
-          anime({
-            targets: item,
-            opacity: [0, 1],
-            translateY: [20, 0],
-            duration: 500,
-            easing: "easeOutQuad",
-          });
-        } else {
-          anime({
-            targets: item,
-            opacity: 0,
-            translateY: 20,
-            duration: 300,
-            easing: "easeOutQuad",
-            complete: function () {
-              item.style.display = "none";
-            },
-          });
-        }
-      });
-    });
   });
 }
 
