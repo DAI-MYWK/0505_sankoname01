@@ -9,550 +9,1069 @@
       content="大阪府守口市の就労継続支援B型事業所。障がいのある方が自分のペースで働ける場所です。見学・体験随時受付中！"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
-    />
+    <!-- フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Swiperスライダー -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <!-- ライブラリ -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+    />
+
+    <!-- メインJS -->
+    <script src="js/script.js" defer></script>
   </head>
-  <body>
+
+  <body data-scroll-container>
     <!-- ヘッダー -->
     <header class="header">
-      <div class="header-inner">
-        <h1 class="logo">
+      <div class="header__inner">
+        <h1 class="header__logo">
           <a href="./">
             <span>株式会社サンコーネーム</span>
           </a>
         </h1>
-        <nav class="header-nav">
-          <ul class="header-nav-list">
-            <li><a href="#about">事業紹介</a></li>
-            <li><a href="#features">事業所の特徴</a></li>
-            <li><a href="#discovery">利用の流れ</a></li>
-            <li><a href="#skills">作業内容</a></li>
-            <li><a href="#staff">スタッフ紹介</a></li>
-            <li><a href="#activities">活動報告</a></li>
-            <li><a href="#access">アクセス</a></li>
-            <li><a href="#recruitment">募集要項</a></li>
+        <div class="header__cta">
+          <a href="#contact" class="btn btn--primary">相談・見学</a>
+        </div>
+        <div class="header__hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav class="header__nav">
+          <div class="header__nav-bg"></div>
+          <ul class="header__nav-list">
+            <li><a href="#about" data-scroll-to>ABOUT</a></li>
+            <li><a href="#features" data-scroll-to>FEATURES</a></li>
+            <li><a href="#discovery" data-scroll-to>DISCOVERY</a></li>
+            <li><a href="#skills" data-scroll-to>SKILLS</a></li>
+            <li><a href="#staff" data-scroll-to>STAFF</a></li>
+            <li><a href="#activities" data-scroll-to>ACTIVITIES</a></li>
+            <li><a href="#access" data-scroll-to>ACCESS</a></li>
+            <li><a href="#recruitment" data-scroll-to>RECRUITMENT</a></li>
           </ul>
         </nav>
-        <div class="header-cta">
-          <a href="#contact" class="btn-primary">相談・見学</a>
-        </div>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </div>
     </header>
 
-    <!-- メインビジュアル -->
-    <section class="hero">
-      <div class="hero-img">
-        <picture>
-          <source
-            media="(max-width: 767px)"
-            srcset="img/A caring female staff member smiling and guiding02.jpg"
-          />
-          <img
-            src="img/A caring female staff member smiling and guiding01.jpg"
-            alt="株式会社サンコーネーム 就労継続支援B型事業所"
-          />
-        </picture>
-        <div class="hero-content">
-          <h2 class="hero-title" data-aos="fade-up" data-aos-delay="300">
-            "働く"も"居場所"も、<br />この場所から始まる。
+    <main class="main" data-scroll-section>
+      <!-- メインビジュアル -->
+      <section class="hero">
+        <div class="hero__bg">
+          <video autoplay muted loop playsinline class="hero__video">
+            <source
+              src="https://cdn.coverr.co/videos/coverr-people-with-disabilities-working-together-5297/1080p.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="hero__overlay"></div>
+        </div>
+        <div class="hero__content">
+          <h2 class="hero__title" data-scroll data-scroll-speed="1">
+            <span class="hero__title-en">TIMELESS LUXURY</span>
+            <span class="hero__title-jp"
+              >"働く"も"居場所"も、<br />この場所から始まる。</span
+            >
           </h2>
-          <p class="hero-text" data-aos="fade-up" data-aos-delay="600">
+          <p class="hero__text" data-scroll data-scroll-speed="1.5">
             障がいのある方が、自分のペースで無理なく過ごせる場所。<br />
             軽作業を通じて、生活リズムの安定と就労への一歩を支援します。
           </p>
-          <div class="hero-btns" data-aos="fade-up" data-aos-delay="900">
-            <a href="#contact" class="btn-primary">見学予約</a>
-            <a href="#contact" class="btn-secondary">資料請求</a>
-            <a href="#contact" class="btn-secondary">お問い合わせ</a>
+          <div class="hero__btns" data-scroll data-scroll-speed="2">
+            <a href="#contact" class="btn btn--primary" data-scroll-to
+              >見学予約</a
+            >
+            <a href="#contact" class="btn btn--outline" data-scroll-to
+              >資料請求</a
+            >
           </div>
         </div>
-      </div>
-    </section>
+        <div class="hero__scroll">
+          <span>SCROLL</span>
+          <div class="hero__scroll-line"></div>
+        </div>
+      </section>
 
-    <!-- 事業紹介 -->
-    <section id="about" class="section about">
-      <div
-        class="bg-wrap"
-        style="
-          background-image: url('img/An open and spacious room inside a supportive workplace02.jpg');
-        "
-      >
+      <!-- 事業紹介 -->
+      <section id="about" class="section about" data-scroll-section>
+        <div class="about__bg"></div>
         <div class="container">
-          <h2 class="section-title" data-aos="fade-up">事業紹介</h2>
-          <div class="about-content" data-aos="fade-up" data-aos-delay="300">
-            <div class="about-message">
-              <div class="message-box show">
-                <h3>法人設立の背景</h3>
-                <p>
-                  代表者の家族が障がいを持っていたことがきっかけで支援の世界へ。「家族が安心できる場所を自分でつくる」という思いから始まりました。
-                </p>
-              </div>
-              <div class="message-box show">
-                <h3>支援方針</h3>
-                <p>
-                  就労支援だけにとどまらず、「その人らしい時間の過ごし方」を尊重します。
-                </p>
-              </div>
-              <div class="message-box show">
-                <h3>地域との関わり</h3>
-                <p>
-                  行政・関係機関・近隣との連携を重視し、地域共生を目指します。
-                </p>
-              </div>
-            </div>
+          <div class="section__header">
+            <h2 class="section__title">
+              <span class="section__title-en">ABOUT</span>
+              <span class="section__title-jp">事業紹介</span>
+            </h2>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- 事業所の特徴 -->
-    <section id="features" class="section features">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">事業所の特徴</h2>
-        <div class="features-wrap">
-          <div class="feature-item" data-aos="fade-right" data-aos-delay="300">
-            <div class="feature-img">
+          <div class="about__content">
+            <div
+              class="about__image fade-in-image"
+              data-scroll
+              data-scroll-speed="-0.5"
+            >
               <img
-                src="img/A cozy break area in a disability support facility01.jpg"
-                alt="居心地の良い休憩スペース"
+                src="https://images.unsplash.com/photo-1577415124269-fc1140a69e91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                alt="事業所の風景"
               />
             </div>
-            <div class="feature-content">
-              <h3 class="feature-title">居心地の良い空間</h3>
-              <p>
+
+            <div class="about__text-container">
+              <div class="about__text-box" data-scroll data-scroll-speed="1">
+                <h3 class="about__subtitle">法人設立の背景</h3>
+                <div class="about__text">
+                  <p>
+                    代表者の家族が障がいを持っていたことがきっかけで支援の世界へ。「家族が安心できる場所を自分でつくる」という思いから始まりました。
+                  </p>
+                </div>
+              </div>
+
+              <div class="about__text-box" data-scroll data-scroll-speed="1.2">
+                <h3 class="about__subtitle">支援方針</h3>
+                <div class="about__text">
+                  <p>
+                    就労支援だけにとどまらず、「その人らしい時間の過ごし方」を尊重します。一人ひとりの個性や強みを活かした支援を行っています。
+                  </p>
+                </div>
+              </div>
+
+              <div class="about__text-box" data-scroll data-scroll-speed="1.4">
+                <h3 class="about__subtitle">地域との関わり</h3>
+                <div class="about__text">
+                  <p>
+                    行政・関係機関・近隣との連携を重視し、地域共生を目指します。地域に開かれた事業所として、様々な活動を展開しています。
+                  </p>
+                </div>
+              </div>
+
+              <div class="about__cta" data-scroll data-scroll-speed="1.6">
+                <a href="#contact" class="btn btn--primary" data-scroll-to
+                  >お問い合わせ</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 事業所の特徴 -->
+      <section id="features" class="section features" data-scroll-section>
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">
+              <span class="section__title-en">FEATURES</span>
+              <span class="section__title-jp">事業所の特徴</span>
+            </h2>
+          </div>
+
+          <div class="features__intro">
+            <p>
+              株式会社サンコーネームの事業所には、他にはない特別な特徴があります。<br />安心して過ごせる環境と、成長を支える仕組みを整えています。
+            </p>
+          </div>
+
+          <div class="features__grid">
+            <div class="feature-card" data-scroll>
+              <div class="feature-card__icon">
+                <i class="fas fa-home"></i>
+              </div>
+              <h3 class="feature-card__title">居心地の良い空間</h3>
+              <p class="feature-card__text">
                 明るく開放的な空間で、リラックスできる休憩スペースを完備。一人ひとりが安心して過ごせる環境です。
               </p>
             </div>
-          </div>
-          <div class="feature-item" data-aos="fade-left" data-aos-delay="500">
-            <div class="feature-img">
-              <img
-                src="img/spacious room inside a supportive workplace.jpg"
-                alt="ゆとりある作業空間"
-              />
-            </div>
-            <div class="feature-content">
-              <h3 class="feature-title">ゆとりある作業空間</h3>
-              <p>
+
+            <div class="feature-card" data-scroll>
+              <div class="feature-card__icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3 class="feature-card__title">ゆとりある作業空間</h3>
+              <p class="feature-card__text">
                 作業スペースは広々として、自分のペースで作業に取り組めます。感染症対策も徹底しています。
               </p>
             </div>
-          </div>
-          <div class="feature-item" data-aos="fade-right" data-aos-delay="700">
-            <div class="feature-content">
-              <h3 class="feature-title">高い工賃実績</h3>
-              <p>
-                平均時給：約400円（大阪府平均の約2倍以上）<br />達成感とやりがいにつながる仕組みを導入しています。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- 発見（DISCOVERY）セクション -->
-    <section id="discovery" class="section discovery">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">利用の流れ</h2>
-        <div class="steps-wrap">
-          <div class="step-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="step-num">STEP<span>1</span></div>
-            <div class="step-img">
-              <img
-                src="img/A caring female staff member smiling and guiding03.jpg"
-                alt="ご相談・見学"
-              />
-            </div>
-            <div class="step-content">
-              <h3 class="step-title">お問い合わせ・見学予約</h3>
-              <p>
-                お気軽にお問い合わせください。事業所の見学は随時受け付けています。
+            <div class="feature-card" data-scroll>
+              <div class="feature-card__icon">
+                <i class="fas fa-coins"></i>
+              </div>
+              <h3 class="feature-card__title">高い工賃実績</h3>
+              <p class="feature-card__text">
+                平均時給：約400円（大阪府平均の約2倍以上）。達成感とやりがいにつながる仕組みを導入しています。
               </p>
             </div>
-          </div>
-          <div class="step-item" data-aos="fade-up" data-aos-delay="500">
-            <div class="step-num">STEP<span>2</span></div>
-            <div class="step-img">
-              <img src="img/friendly staff members.jpg" alt="体験利用" />
-            </div>
-            <div class="step-content">
-              <h3 class="step-title">体験利用</h3>
-              <p>
-                半日〜数日間の体験利用ができます。実際の作業や雰囲気を体感してください。
-              </p>
-            </div>
-          </div>
-          <div class="step-item" data-aos="fade-up" data-aos-delay="700">
-            <div class="step-num">STEP<span>3</span></div>
-            <div class="step-img">
-              <img
-                src="img/A caring female staff member smiling and guiding04.jpg"
-                alt="利用開始"
-              />
-            </div>
-            <div class="step-content">
-              <h3 class="step-title">利用開始</h3>
-              <p>
-                受給者証の申請サポート、利用契約・個別支援計画作成を経て利用開始となります。
-              </p>
-              <p class="note">
-                ※必要書類・所要期間についてはお気軽にご相談ください。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- スキルアップセクション -->
-    <section id="skills" class="section skills">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">作業内容</h2>
-        <div class="skills-intro" data-aos="fade-up" data-aos-delay="300">
-          <p>
-            自分のペースで取り組める様々な作業をご用意しています。<br />生活リズムの安定、スキルアップ、工賃獲得の喜びを目指します。
-          </p>
-        </div>
-        <div class="skills-wrap">
-          <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
-            <h3 class="category-title">PC作業</h3>
-            <div class="category-img">
-              <img
-                src="img/developmental disability working on a laptop.jpg"
-                alt="PC作業"
-              />
+            <div class="feature-card" data-scroll>
+              <div class="feature-card__icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h3 class="feature-card__title">手厚いサポート</h3>
+              <p class="feature-card__text">
+                職業指導員・生活支援員が常駐し、一人ひとりに寄り添った支援を行います。いつでも相談できる環境です。
+              </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 利用の流れ -->
+      <section id="discovery" class="section discovery" data-scroll-section>
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">
+              <span class="section__title-en">DISCOVERY</span>
+              <span class="section__title-jp">利用の流れ</span>
+            </h2>
+          </div>
+
+          <div class="discovery__intro">
             <p>
-              データ入力や簡単なPC操作など、パソコンを使った作業があります。初心者の方でも丁寧に指導します。
+              サンコーネームをご利用いただくまでの流れです。<br />見学・体験は随時受け付けておりますので、お気軽にお問い合わせください。
             </p>
           </div>
-          <div class="skill-category" data-aos="fade-up" data-aos-delay="600">
-            <h3 class="category-title">軽作業</h3>
-            <div class="category-img-wrap">
-              <div class="category-img">
+
+          <div class="discovery__slider">
+            <div class="swiper discovery-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="discovery-card">
+                    <div class="discovery-card__number">01</div>
+                    <div class="discovery-card__image">
+                      <img
+                        src="https://images.unsplash.com/photo-1518110925495-b5c22a359155?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                        alt="見学・相談"
+                      />
+                    </div>
+                    <h3 class="discovery-card__title">見学・相談</h3>
+                    <p class="discovery-card__text">
+                      まずは事業所の見学と相談を行います。環境や作業内容を確認していただきます。お気軽にお問い合わせください。
+                    </p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="discovery-card">
+                    <div class="discovery-card__number">02</div>
+                    <div class="discovery-card__image">
+                      <img
+                        src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                        alt="体験利用"
+                      />
+                    </div>
+                    <h3 class="discovery-card__title">体験利用</h3>
+                    <p class="discovery-card__text">
+                      実際に数日間、事業所で作業を体験していただきます。ご自身に合った環境かどうかを確認する機会です。
+                    </p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="discovery-card">
+                    <div class="discovery-card__number">03</div>
+                    <div class="discovery-card__image">
+                      <img
+                        src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                        alt="利用申請"
+                      />
+                    </div>
+                    <h3 class="discovery-card__title">利用申請</h3>
+                    <p class="discovery-card__text">
+                      お住まいの市区町村で利用申請を行います。必要な手続きについてはスタッフがサポートいたします。
+                    </p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="discovery-card">
+                    <div class="discovery-card__number">04</div>
+                    <div class="discovery-card__image">
+                      <img
+                        src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                        alt="契約・利用開始"
+                      />
+                    </div>
+                    <h3 class="discovery-card__title">契約・利用開始</h3>
+                    <p class="discovery-card__text">
+                      受給者証が発行されたら、契約を結び利用開始となります。スタッフ一同、あなたのご利用をお待ちしています。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="discovery__cta">
+            <a href="#contact" class="btn btn--primary" data-scroll-to
+              >見学・体験のお申し込み</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- 作業内容 -->
+      <section id="skills" class="section skills" data-scroll-section>
+        <div class="skills__bg"></div>
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">
+              <span class="section__title-en">SKILLS</span>
+              <span class="section__title-jp">作業内容</span>
+            </h2>
+          </div>
+
+          <div class="skills__intro">
+            <p>
+              サンコーネームでは、様々な軽作業に取り組んでいます。<br />あなたの得意なことや興味のあることを活かして働ける環境です。
+            </p>
+          </div>
+
+          <div class="skills__grid">
+            <div class="skill-card" data-scroll>
+              <div class="skill-card__image">
                 <img
-                  src="img/Close-up view of hands performing.jpg"
-                  alt="軽作業"
+                  src="https://images.unsplash.com/photo-1605117882932-f9e32b03fea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+                  alt="ネームタグ製作"
                 />
               </div>
-              <div class="category-img">
+              <div class="skill-card__content">
+                <h3 class="skill-card__title">ネームタグ製作</h3>
+                <p class="skill-card__text">
+                  社員証や名札などのネームタグ製作。型押し機を使った作業です。丁寧さが求められます。
+                </p>
+              </div>
+            </div>
+
+            <div class="skill-card" data-scroll>
+              <div class="skill-card__image">
                 <img
-                  src="img/folding pamphlets and inserting them into envelopes.jpg"
+                  src="https://images.unsplash.com/photo-1584992236310-6eedc500baba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
                   alt="封入作業"
                 />
               </div>
+              <div class="skill-card__content">
+                <h3 class="skill-card__title">封入作業</h3>
+                <p class="skill-card__text">
+                  パンフレットやチラシの封入作業。正確さと素早さがポイントです。作業ペースは自分で調整できます。
+                </p>
+              </div>
             </div>
-            <p>
-              シール貼り・袋詰め・封入など、軽作業を中心に提供しています。自分のペースで取り組めます。
-            </p>
-          </div>
-          <div class="skill-category" data-aos="fade-up" data-aos-delay="800">
-            <h3 class="category-title">農作業・外作業</h3>
-            <div class="category-img-wrap">
-              <div class="category-img">
+
+            <div class="skill-card" data-scroll>
+              <div class="skill-card__image">
                 <img
-                  src="img/disability participating in light outdoor maintenance tasks.jpg"
-                  alt="外作業"
+                  src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="シール貼り"
                 />
               </div>
-              <div class="category-img">
+              <div class="skill-card__content">
+                <h3 class="skill-card__title">シール貼り</h3>
+                <p class="skill-card__text">
+                  商品へのシール貼り作業。正確に貼る作業で、集中力を養います。比較的取り組みやすい作業です。
+                </p>
+              </div>
+            </div>
+
+            <div class="skill-card" data-scroll>
+              <div class="skill-card__image">
                 <img
-                  src="img/A person harvesting vegetables.jpg"
-                  alt="野菜収穫"
+                  src="https://images.unsplash.com/photo-1598300188257-626ab2c1b5cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                  alt="箱折り・組立"
                 />
               </div>
-            </div>
-            <p>
-              季節に応じた農作業や屋外での軽作業も行います。体を動かしながら働きたい方におすすめです。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- スタッフ紹介セクション -->
-    <section id="staff" class="section staff">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">スタッフ紹介</h2>
-        <div class="staff-header" data-aos="fade-up" data-aos-delay="300">
-          <img src="img/friendly staff members.jpg" alt="スタッフ一同" />
-        </div>
-        <div class="staff-message" data-aos="fade-up" data-aos-delay="500">
-          <div class="message-box">
-            <h3>支援へのこだわり</h3>
-            <p>
-              職業指導員、生活支援員が常駐し、一人ひとりに寄り添った支援を心がけています。<br />個別支援計画に基づき、それぞれの目標達成をサポートします。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 活動報告セクション -->
-    <section id="activities" class="section activities">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">活動報告</h2>
-        <div class="activities-wrap" data-aos="fade-up" data-aos-delay="300">
-          <div class="activity-item">
-            <div class="activity-img">
-              <img
-                src="img/A person harvesting vegetables.jpg"
-                alt="収穫体験"
-              />
-            </div>
-            <div class="activity-content">
-              <p class="activity-date">2025.04.15</p>
-              <h3 class="activity-title">収穫体験を行いました</h3>
-              <p>
-                近隣の農園での収穫体験を行いました。自然に触れる貴重な機会となりました。
-              </p>
-            </div>
-          </div>
-          <div class="activity-item">
-            <div class="activity-img">
-              <img
-                src="img/A cozy break area in a disability support facility01.jpg"
-                alt="新しい休憩スペース"
-              />
-            </div>
-            <div class="activity-content">
-              <p class="activity-date">2025.03.20</p>
-              <h3 class="activity-title">新しい休憩スペースが完成しました</h3>
-              <p>
-                より快適に過ごせるよう、休憩スペースをリニューアルしました。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- アクセスセクション -->
-    <section id="access" class="section access">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">アクセス</h2>
-        <div class="access-wrap">
-          <div class="access-map" data-aos="fade-right" data-aos-delay="300">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.5881666442705!2d135.5797099!3d34.7372088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e0e22d68e3a9%3A0xd8fc6527d7c31dff!2z44CSNTcwLTAwMTEg5aSn6Ziq5bqc5a6I5Y-j5biC6YeR55Sw55S677yS5LiB55uu77yV77yV4oiS77yTIOOCseOCpOODl-ODqeOCtuODleODqeOCtumHkeWtlA!5e0!3m2!1sja!2sjp!4v1716554499275!5m2!1sja!2sjp"
-              width="100%"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div class="access-info" data-aos="fade-left" data-aos-delay="500">
-            <h3>住所</h3>
-            <p>
-              〒570-0011<br />大阪府守口市金田町2丁目55-3<br />ケイプラザ金田1F
-            </p>
-            <h3>送迎エリア</h3>
-            <p>
-              守口市、寝屋川市、摂津市、門真市<br />※自主通所は大阪府全域対応
-            </p>
-            <h3>施設内部</h3>
-            <div class="facility-img">
-              <img
-                src="img/spacious room inside a supportive workplace.jpg"
-                alt="施設内部"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- バリアフリー対応セクション -->
-    <section id="barrier-free" class="section barrier-free">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">バリアフリー対応</h2>
-        <div class="barrier-free-wrap">
-          <div
-            class="barrier-free-img"
-            data-aos="fade-right"
-            data-aos-delay="300"
-          >
-            <img
-              src="img/A person using a wheelchair participating.jpg"
-              alt="車いす利用者の活動"
-            />
-          </div>
-          <div
-            class="barrier-free-content"
-            data-aos="fade-left"
-            data-aos-delay="500"
-          >
-            <h3>車いす対応</h3>
-            <p>施設内はバリアフリー設計で、車いすでも安心して利用できます。</p>
-            <h3>様々な障がいに対応</h3>
-            <p>
-              身体障がい、知的障がい、精神障がい、発達障がいなど、様々な特性に合わせた環境を整えています。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 募集要項セクション -->
-    <section id="recruitment" class="section recruitment">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">募集要項</h2>
-        <div class="recruitment-wrap" data-aos="fade-up" data-aos-delay="300">
-          <div class="recruitment-item">
-            <h3>仕事内容</h3>
-            <p>
-              内職作業（シール貼り・袋詰め・封入など）、<br />PC作業、農作業・外作業など
-            </p>
-          </div>
-          <div class="recruitment-item">
-            <h3>勤務条件</h3>
-            <p>
-              時間：10:00〜15:00（休憩1時間）<br />週1回〜週5回まで相談可能<br />送迎：守口市、寝屋川市、摂津市、門真市
-            </p>
-          </div>
-          <div class="recruitment-item">
-            <h3>応募資格</h3>
-            <p>
-              障害者手帳、自立支援医療受給者証をお持ちの方<br />自主通所は大阪府全域対応
-            </p>
-          </div>
-          <div class="recruitment-item">
-            <h3>工賃</h3>
-            <p>時給400円〜<br />大阪府平均の約2倍以上</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 相談・見学応募セクション -->
-    <section id="contact" class="section contact">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">相談・見学のお申し込み</h2>
-        <div class="contact-intro" data-aos="fade-up" data-aos-delay="300">
-          <p>
-            見学・体験は随時受け付けています。<br />お気軽にお問い合わせください。
-          </p>
-        </div>
-
-        <div class="contact-container">
-          <!-- WEBフォーム -->
-          <div
-            class="contact-form-section"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <h3>WEBフォーム</h3>
-            <form class="contact-form">
-              <div class="form-group">
-                <label for="contact-type">ご希望内容</label>
-                <select id="contact-type" required>
-                  <option value="">選択してください</option>
-                  <option value="見学">見学</option>
-                  <option value="体験">体験</option>
-                  <option value="資料請求">資料請求</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="name">氏名</label>
-                <input type="text" id="name" required />
-              </div>
-              <div class="form-group">
-                <label for="tel">電話番号</label>
-                <input type="tel" id="tel" required />
-              </div>
-              <div class="form-group">
-                <label for="email">メールアドレス</label>
-                <input type="email" id="email" required />
-              </div>
-              <div class="form-group">
-                <label for="message">ご相談内容</label>
-                <textarea id="message" rows="5"></textarea>
-              </div>
-              <div class="form-group">
-                <label class="checkbox">
-                  <input type="checkbox" required />
-                  <span>プライバシーポリシーに同意する</span>
-                </label>
-              </div>
-              <button type="submit" class="btn-submit">送信する</button>
-            </form>
-          </div>
-
-          <!-- 他の連絡方法 -->
-          <div
-            class="other-contact-methods"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
-            <!-- LINE -->
-            <div class="other-contact-method">
-              <h3>LINE</h3>
-              <p>
-                LINEからもお問い合わせいただけます。<br />
-                QRコードを読み取ってください。
-              </p>
-              <div class="line-qr">
-                <img src="img/friendly staff members.jpg" alt="LINE QRコード" />
+              <div class="skill-card__content">
+                <h3 class="skill-card__title">箱折り・組立</h3>
+                <p class="skill-card__text">
+                  商品を入れる箱の組み立て作業。手先を使う作業で、完成したときの達成感があります。
+                </p>
               </div>
             </div>
 
-            <!-- 電話 -->
-            <div class="other-contact-method">
-              <h3>お電話</h3>
-              <p class="phone-number">072-XXX-XXXX</p>
-              <p>受付時間：9:00〜17:00（月〜金）</p>
+            <div class="skill-card" data-scroll>
+              <div class="skill-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1607703703520-bb638e84caf2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="検品作業"
+                />
+              </div>
+              <div class="skill-card__content">
+                <h3 class="skill-card__title">検品作業</h3>
+                <p class="skill-card__text">
+                  製品の不良品チェックなどの検品作業。細かい部分を見る目を養う作業です。
+                </p>
+              </div>
+            </div>
+
+            <div class="skill-card" data-scroll>
+              <div class="skill-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="PC入力作業"
+                />
+              </div>
+              <div class="skill-card__content">
+                <h3 class="skill-card__title">PC入力作業</h3>
+                <p class="skill-card__text">
+                  データ入力などのPC作業。PCスキルを活かしたい方におすすめです。ステップアップも可能です。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills__note">
+            <p>
+              ※作業内容は一例です。その他にも様々な作業があり、得意なことを活かせる環境づくりを心がけています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- スタッフ紹介 -->
+      <section id="staff" class="section staff" data-scroll-section>
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">
+              <span class="section__title-en">STAFF</span>
+              <span class="section__title-jp">スタッフ紹介</span>
+            </h2>
+          </div>
+
+          <div class="staff__intro">
+            <p>
+              サンコーネームのスタッフをご紹介します。<br />専門性を持ったスタッフが、あなたの「働く」を支えます。
+            </p>
+          </div>
+
+          <div class="staff__slider">
+            <div class="swiper staff-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="staff-card">
+                    <div class="staff-card__image">
+                      <img
+                        src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                        alt="佐藤 直子"
+                      />
+                    </div>
+                    <div class="staff-card__content">
+                      <h3 class="staff-card__title">佐藤 直子</h3>
+                      <p class="staff-card__position">管理者</p>
+                      <p class="staff-card__text">
+                        社会福祉士・精神保健福祉士の資格を持ち、15年以上の福祉現場経験があります。利用者さん一人ひとりの可能性を信じ、寄り添った支援を心がけています。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <div class="staff-card">
+                    <div class="staff-card__image">
+                      <img
+                        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                        alt="田中 健太"
+                      />
+                    </div>
+                    <div class="staff-card__content">
+                      <h3 class="staff-card__title">田中 健太</h3>
+                      <p class="staff-card__position">サービス管理責任者</p>
+                      <p class="staff-card__text">
+                        障がい者就労支援の専門家として10年のキャリアを持ちます。個別支援計画の作成から実行まで、一貫したサポートを提供しています。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <div class="staff-card">
+                    <div class="staff-card__image">
+                      <img
+                        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1961&q=80"
+                        alt="山田 恵子"
+                      />
+                    </div>
+                    <div class="staff-card__content">
+                      <h3 class="staff-card__title">山田 恵子</h3>
+                      <p class="staff-card__position">職業指導員</p>
+                      <p class="staff-card__text">
+                        企業での勤務経験を活かし、実践的な職業指導を行っています。作業効率と品質の両立を目指しながら、利用者さんの成長をサポートします。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <div class="staff-card">
+                    <div class="staff-card__image">
+                      <img
+                        src="https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80"
+                        alt="鈴木 大輔"
+                      />
+                    </div>
+                    <div class="staff-card__content">
+                      <h3 class="staff-card__title">鈴木 大輔</h3>
+                      <p class="staff-card__position">生活支援員</p>
+                      <p class="staff-card__text">
+                        心理カウンセラーの資格を持ち、メンタルヘルスケアに注力しています。職場での悩みから日常生活の困りごとまで、幅広くサポートします。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- 活動報告 -->
+      <section id="activities" class="section activities" data-scroll-section>
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">
+              <span class="section__title-en">ACTIVITIES</span>
+              <span class="section__title-jp">活動報告</span>
+            </h2>
+          </div>
+
+          <div class="activities__intro">
+            <p>
+              サンコーネームの日々の活動をご紹介します。<br />仕事だけでなく、様々なイベントや行事も大切にしています。
+            </p>
+          </div>
+
+          <div class="activities__grid">
+            <div
+              class="activity-card"
+              data-scroll
+              data-fancybox="gallery"
+              href="https://images.unsplash.com/photo-1577896851906-abc420744c0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            >
+              <div class="activity-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1577896851906-abc420744c0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="クリスマス会の様子"
+                />
+              </div>
+              <div class="activity-card__content">
+                <span class="activity-card__date">2023.12.25</span>
+                <h3 class="activity-card__title">クリスマス会を開催しました</h3>
+              </div>
+            </div>
+
+            <div
+              class="activity-card"
+              data-scroll
+              data-fancybox="gallery"
+              href="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1969&q=80"
+            >
+              <div class="activity-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1969&q=80"
+                  alt="料理教室の様子"
+                />
+              </div>
+              <div class="activity-card__content">
+                <span class="activity-card__date">2023.11.15</span>
+                <h3 class="activity-card__title">お菓子作り教室を開催</h3>
+              </div>
+            </div>
+
+            <div
+              class="activity-card"
+              data-scroll
+              data-fancybox="gallery"
+              href="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            >
+              <div class="activity-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="地域清掃活動"
+                />
+              </div>
+              <div class="activity-card__content">
+                <span class="activity-card__date">2023.10.10</span>
+                <h3 class="activity-card__title">地域清掃活動に参加</h3>
+              </div>
+            </div>
+
+            <div
+              class="activity-card"
+              data-scroll
+              data-fancybox="gallery"
+              href="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2049&q=80"
+            >
+              <div class="activity-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2049&q=80"
+                  alt="スポーツレクリエーション"
+                />
+              </div>
+              <div class="activity-card__content">
+                <span class="activity-card__date">2023.09.05</span>
+                <h3 class="activity-card__title">スポーツレクリエーション</h3>
+              </div>
+            </div>
+
+            <div
+              class="activity-card"
+              data-scroll
+              data-fancybox="gallery"
+              href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            >
+              <div class="activity-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="作業の様子"
+                />
+              </div>
+              <div class="activity-card__content">
+                <span class="activity-card__date">2023.08.22</span>
+                <h3 class="activity-card__title">新しい作業にチャレンジ</h3>
+              </div>
+            </div>
+
+            <div
+              class="activity-card"
+              data-scroll
+              data-fancybox="gallery"
+              href="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            >
+              <div class="activity-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="バーベキュー"
+                />
+              </div>
+              <div class="activity-card__content">
+                <span class="activity-card__date">2023.07.15</span>
+                <h3 class="activity-card__title">夏のバーベキュー大会</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- アクセス -->
+      <section id="access" class="section access" data-scroll-section>
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">
+              <span class="section__title-en">ACCESS</span>
+              <span class="section__title-jp">アクセス</span>
+            </h2>
+          </div>
+
+          <div class="access__content">
+            <div class="access__map" data-scroll data-scroll-speed="-0.5">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.0323741555874!2d135.56973007571835!3d34.70580977289732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e16c1bf61a59%3A0x6e93ea8c810ce997!2z44CSNTcwLTAwMTEg5aSn6Ziq5bqc5a6I5Y-j5biC6YeR55Sw55S677yS5LiB55uu77yV77yV4oiS77yT!5e0!3m2!1sja!2sjp!4v1686735167116!5m2!1sja!2sjp"
+                width="100%"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+
+            <div class="access__info" data-scroll data-scroll-speed="1">
+              <div class="access__address">
+                <h3>所在地</h3>
+                <p>
+                  〒570-0011<br />
+                  大阪府守口市金田町2丁目55-3<br />
+                  ケイプラザ金田1F
+                </p>
+              </div>
+
+              <div class="access__route">
+                <h3>交通アクセス</h3>
+                <p>
+                  京阪本線「守口市」駅より徒歩15分<br />
+                  大阪メトロ谷町線「守口」駅より徒歩15分<br />
+                  京阪バス「金田町」バス停より徒歩3分
+                </p>
+              </div>
+
+              <div class="access__time">
+                <h3>営業時間</h3>
+                <p>
+                  月曜日～金曜日：9:00～16:00<br />
+                  （休憩時間：12:00～13:00）<br />
+                  定休日：土曜日・日曜日・祝日
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- バリアフリー対応 -->
+      <section
+        id="barrier-free"
+        class="section barrier-free"
+        data-scroll-section
+      >
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">
+              <span class="section__title-en">BARRIER FREE</span>
+              <span class="section__title-jp">バリアフリー対応</span>
+            </h2>
+          </div>
+
+          <div class="barrier-free__intro">
+            <p>
+              サンコーネームでは、様々な障がいに対応できるよう設備を整えています。<br />安心してご利用いただける環境づくりを心がけています。
+            </p>
+          </div>
+
+          <div class="barrier-free__items">
+            <div class="barrier-free__item" data-scroll>
+              <div class="barrier-free__icon">
+                <i class="fas fa-wheelchair"></i>
+              </div>
+              <div class="barrier-free__content">
+                <h3>車椅子対応</h3>
+                <p>
+                  出入口はスロープ付きで、室内は段差のないバリアフリー設計。多目的トイレも完備しています。
+                </p>
+              </div>
+            </div>
+
+            <div class="barrier-free__item" data-scroll>
+              <div class="barrier-free__icon">
+                <i class="fas fa-car-side"></i>
+              </div>
+              <div class="barrier-free__content">
+                <h3>送迎対応</h3>
+                <p>
+                  必要に応じて、最寄り駅や自宅からの送迎サービスを行っています。詳細はお問い合わせください。
+                </p>
+              </div>
+            </div>
+
+            <div class="barrier-free__item" data-scroll>
+              <div class="barrier-free__icon">
+                <i class="fas fa-hand-paper"></i>
+              </div>
+              <div class="barrier-free__content">
+                <h3>手話対応</h3>
+                <p>
+                  スタッフに手話ができるスタッフがおり、聴覚障がいの方にも安心してご利用いただけます。
+                </p>
+              </div>
+            </div>
+
+            <div class="barrier-free__item" data-scroll>
+              <div class="barrier-free__icon">
+                <i class="fas fa-temperature-low"></i>
+              </div>
+              <div class="barrier-free__content">
+                <h3>空調管理</h3>
+                <p>
+                  室温・湿度を適切に管理し、快適な作業環境を提供しています。休憩室も完備しています。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 募集要項 -->
+      <section id="recruitment" class="section recruitment" data-scroll-section>
+        <div class="recruitment__bg"></div>
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">
+              <span class="section__title-en">RECRUITMENT</span>
+              <span class="section__title-jp">募集要項</span>
+            </h2>
+          </div>
+
+          <div class="recruitment__intro">
+            <p>
+              サンコーネームでは、一緒に働く仲間を募集しています。<br />あなたの「できること」を活かせる場所です。
+            </p>
+          </div>
+
+          <div class="recruitment__content" data-scroll>
+            <div class="recruitment__table">
+              <div class="recruitment__row">
+                <div class="recruitment__label">対象者</div>
+                <div class="recruitment__data">
+                  <p>
+                    18歳以上の障害者手帳（身体・知的・精神）をお持ちの方、または障害者総合支援法のサービス受給者証をお持ちの方
+                  </p>
+                </div>
+              </div>
+              <div class="recruitment__row">
+                <div class="recruitment__label">定員</div>
+                <div class="recruitment__data">
+                  <p>20名</p>
+                </div>
+              </div>
+              <div class="recruitment__row">
+                <div class="recruitment__label">利用料</div>
+                <div class="recruitment__data">
+                  <p>障害者総合支援法に基づく自己負担金</p>
+                  <p>※所得に応じた負担上限月額があります</p>
+                </div>
+              </div>
+              <div class="recruitment__row">
+                <div class="recruitment__label">工賃</div>
+                <div class="recruitment__data">
+                  <p>
+                    平均時給：約<span class="recruitment__highlight">400</span
+                    >円
+                  </p>
+                  <p>※作業内容や実績に応じて変動します</p>
+                </div>
+              </div>
+              <div class="recruitment__row">
+                <div class="recruitment__label">作業時間</div>
+                <div class="recruitment__data">
+                  <p>月曜日～金曜日：9:00～16:00</p>
+                  <p>※体調や状況に合わせて調整可能です</p>
+                </div>
+              </div>
+              <div class="recruitment__row">
+                <div class="recruitment__label">休日</div>
+                <div class="recruitment__data">
+                  <p>土曜日・日曜日・祝日・お盆休み・年末年始</p>
+                </div>
+              </div>
+              <div class="recruitment__row">
+                <div class="recruitment__label">必要書類</div>
+                <div class="recruitment__data">
+                  <p>障害者手帳のコピー、受給者証、印鑑、その他必要書類</p>
+                  <p>※詳細はお問い合わせ時にご案内します</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="recruitment__cta">
+            <a href="#contact" class="btn btn--primary" data-scroll-to
+              >見学・体験のお申し込み</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- お問い合わせ -->
+      <section id="contact" class="section contact" data-scroll-section>
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">
+              <span class="section__title-en">CONTACT</span>
+              <span class="section__title-jp">お問い合わせ</span>
+            </h2>
+          </div>
+
+          <div class="contact__intro">
+            <p>
+              見学・体験のお申し込みや、ご不明点のお問い合わせはこちらからお願いします。<br />担当スタッフがしっかりとサポートいたします。
+            </p>
+          </div>
+
+          <div class="contact__content">
+            <div class="contact__form-container" data-scroll>
+              <form class="contact__form">
+                <div class="form__group">
+                  <label for="name"
+                    >お名前<span class="required">必須</span></label
+                  >
+                  <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="form__group">
+                  <label for="email"
+                    >メールアドレス<span class="required">必須</span></label
+                  >
+                  <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form__group">
+                  <label for="tel">電話番号</label>
+                  <input type="tel" id="tel" name="tel" />
+                </div>
+
+                <div class="form__group">
+                  <label for="inquiry-type"
+                    >お問い合わせ種別<span class="required">必須</span></label
+                  >
+                  <select id="inquiry-type" name="inquiry-type" required>
+                    <option value="">選択してください</option>
+                    <option value="visit">見学希望</option>
+                    <option value="experience">体験希望</option>
+                    <option value="document">資料請求</option>
+                    <option value="question">質問・相談</option>
+                    <option value="other">その他</option>
+                  </select>
+                </div>
+
+                <div class="form__group">
+                  <label for="message"
+                    >お問い合わせ内容<span class="required">必須</span></label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="form__policy">
+                  <label class="checkbox">
+                    <input type="checkbox" name="privacy-policy" required />
+                    <span>個人情報保護方針に同意する</span>
+                  </label>
+                </div>
+
+                <div class="form__submit">
+                  <button type="submit" class="btn btn--contact">
+                    送信する
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="contact__info" data-scroll>
+              <div class="contact__info-item">
+                <div class="contact__info-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact__info-content">
+                  <h3>お電話でのお問い合わせ</h3>
+                  <p class="contact__phone">06-1234-5678</p>
+                  <p class="contact__time">受付時間：平日 9:00～17:00</p>
+                </div>
+              </div>
+
+              <div class="contact__info-item">
+                <div class="contact__info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact__info-content">
+                  <h3>メールでのお問い合わせ</h3>
+                  <p class="contact__email">info@sankoname.co.jp</p>
+                  <p class="contact__time">24時間受付（返信は営業日）</p>
+                </div>
+              </div>
+
+              <div class="contact__info-item">
+                <div class="contact__info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact__info-content">
+                  <h3>所在地</h3>
+                  <p>
+                    〒570-0011<br />大阪府守口市金田町2丁目55-3<br />ケイプラザ金田1F
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- フッター -->
     <footer class="footer">
       <div class="container">
-        <div class="footer-inner">
-          <div class="footer-info">
-            <div class="footer-logo">
+        <div class="footer__inner">
+          <div class="footer__info">
+            <div class="footer__logo">
               <span>株式会社サンコーネーム</span>
             </div>
-            <p class="footer-address">
+            <p class="footer__address">
               〒570-0011<br />
               大阪府守口市金田町2丁目55-3<br />
               ケイプラザ金田1F
             </p>
+            <ul class="footer__social">
+              <li>
+                <a href="#" class="footer__social-link"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="footer__social-link"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="footer__social-link"
+                  ><i class="fab fa-facebook"></i
+                ></a>
+              </li>
+            </ul>
           </div>
-          <div class="footer-links">
-            <ul>
-              <li><a href="privacy.html">プライバシーポリシー</a></li>
-              <li><a href="site-policy.html">サイトポリシー</a></li>
+          <div class="footer__nav">
+            <ul class="footer__nav-list">
+              <li><a href="#about" data-scroll-to>事業紹介</a></li>
+              <li><a href="#features" data-scroll-to>事業所の特徴</a></li>
+              <li><a href="#discovery" data-scroll-to>利用の流れ</a></li>
+              <li><a href="#skills" data-scroll-to>作業内容</a></li>
+              <li><a href="#staff" data-scroll-to>スタッフ紹介</a></li>
+              <li><a href="#activities" data-scroll-to>活動報告</a></li>
+              <li><a href="#access" data-scroll-to>アクセス</a></li>
+              <li><a href="#recruitment" data-scroll-to>募集要項</a></li>
             </ul>
           </div>
         </div>
-        <p class="copyright">
-          © 2025 株式会社サンコーネーム All Rights Reserved.
-        </p>
+        <div class="footer__bottom">
+          <p class="footer__copyright">
+            © 2025 株式会社サンコーネーム All Rights Reserved.
+          </p>
+          <ul class="footer__links">
+            <li><a href="privacy.html">プライバシーポリシー</a></li>
+            <li><a href="site-policy.html">サイトポリシー</a></li>
+          </ul>
+        </div>
       </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script src="js/script.js"></script>
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
   </body>
 </html>
