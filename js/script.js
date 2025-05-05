@@ -6,13 +6,25 @@
 
 // DOMが読み込まれたら実行
 $(document).ready(function () {
+  // 事業紹介のメッセージボックスを最初に表示
+  $(".about-message .message-box").addClass("show");
+
   // AOSの初期化
   AOS.init({
     duration: 800,
-    easing: "ease",
+    easing: "ease-out",
     once: true,
-    offset: 100,
+    offset: 50,
+    delay: 100,
+    startEvent: "DOMContentLoaded",
   });
+
+  // AOSが正常に機能しない場合のフォールバック
+  setTimeout(function () {
+    if (!$(".message-box").hasClass("aos-animate")) {
+      $(".message-box").addClass("aos-animate");
+    }
+  }, 1000);
 
   // ハンバーガーメニューの動作
   $(".hamburger").on("click", function () {
