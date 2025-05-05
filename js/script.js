@@ -1,245 +1,239 @@
 /**
  * 株式会社サンコーネーム
  * 就労継続支援B型事業所ホームページ
- * JavaScript - Timeless Luxury
+ * JavaScript - Seasonal Harmony
  */
 
-// DOMの読み込み完了後に実行
-document.addEventListener("DOMContentLoaded", () => {
+// DOMコンテンツがロードされた時に実行
+document.addEventListener("DOMContentLoaded", function () {
+  // 文字分割アニメーション用の初期化
+  Splitting();
+
+  // 季節切り替え機能
+  initSeasonSwitch();
+
+  // スクロールアニメーション
+  initScrollReveal();
+
   // スムーススクロールの初期化
-  initLocomotiveScroll();
-
-  // GSAPアニメーションの初期化
-  initGSAP();
-
-  // ヘッダーのスクロール処理
-  initHeaderScroll();
-
-  // ハンバーガーメニューの処理
-  initHamburgerMenu();
+  initSmoothScroll();
 
   // Swiperスライダーの初期化
   initSwipers();
 
-  // Fancyboxギャラリーの初期化
-  initFancybox();
+  // ヘッダーのスクロール制御
+  initHeaderScroll();
+
+  // ハンバーガーメニューの制御
+  initMobileMenu();
+
+  // アコーディオンの制御
+  initAccordion();
+
+  // アクティビティフィルター
+  initActivityFilter();
+
+  // ページトップへ戻るボタン
+  initPageTopButton();
 });
 
 /**
- * Locomotive Scrollの初期化
+ * 季節切替機能
  */
-function initLocomotiveScroll() {
-  const scrollContainer = document.querySelector("[data-scroll-container]");
+function initSeasonSwitch() {
+  const seasonBtns = document.querySelectorAll(".season-switch__btn");
+  const body = document.body;
+  const currentSeason = body.getAttribute("data-season") || "spring";
 
-  if (!scrollContainer) return;
+  // 現在の季節を設定
+  body.setAttribute("data-season", currentSeason);
 
-  // Locomotive Scrollインスタンスの生成
-  const scroll = new LocomotiveScroll({
-    el: scrollContainer,
+  // 対応するボタンをアクティブに
+  document
+    .querySelector(`.season-switch__btn[data-season="${currentSeason}"]`)
+    .classList.add("is-active");
+
+  // 季節ボタンのクリックイベント
+  seasonBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const season = this.getAttribute("data-season");
+      body.setAttribute("data-season", season);
+
+      // ボタンのアクティブ状態を更新
+      seasonBtns.forEach((b) => b.classList.remove("is-active"));
+      this.classList.add("is-active");
+
+      // 季節に応じたパターンエフェクト
+      animateSeasonChange(season);
+    });
+  });
+}
+
+/**
+ * 季節変更時のアニメーション
+ */
+function animateSeasonChange(season) {
+  // 季節に応じたカラー
+  let seasonColor;
+  switch (season) {
+    case "spring":
+      seasonColor = "#F8B7CD";
+      break;
+    case "summer":
+      seasonColor = "#91C7B1";
+      break;
+    case "autumn":
+      seasonColor = "#E8846B";
+      break;
+    case "winter":
+      seasonColor = "#B6D9ED";
+      break;
+    default:
+      seasonColor = "#F8B7CD";
+  }
+
+  // Anime.jsでトランジションアニメーション
+  anime({
+    targets: ".hero__pattern",
+    opacity: [0.1, 0.2, 0.1],
+    scale: [0.98, 1.02, 1],
+    duration: 1000,
+    easing: "easeInOutQuad",
+  });
+
+  // 背景パターンのエフェクト
+  const floatingItems = document.querySelectorAll(".float-animation");
+  floatingItems.forEach((item) => {
+    anime({
+      targets: item,
+      translateY: [10, -10],
+      rotate: ["-2deg", "2deg"],
+      duration: 1000,
+      easing: "easeInOutQuad",
+      complete: function () {
+        anime({
+          targets: item,
+          translateY: 0,
+          rotate: 0,
+          duration: 800,
+          easing: "easeOutQuad",
+        });
+      },
+    });
+  });
+}
+
+/**
+ * ScrollRevealの初期化
+ */
+function initScrollReveal() {
+  const sr = ScrollReveal({
+    origin: "bottom",
+    distance: "30px",
+    duration: 800,
+    delay: 100,
+    easing: "ease-out",
+    reset: false,
+  });
+
+  // 共通の表示アニメーション
+  sr.reveal(".section__title", { delay: 100 });
+  sr.reveal(".section__lead", { delay: 200 });
+
+  // ストーリーセクション
+  sr.reveal(".story__item", { interval: 300 });
+
+  // 特徴セクション
+  sr.reveal(".feature-card", { interval: 150 });
+  sr.reveal(".achievement__item", { interval: 200, delay: 300 });
+
+  // スタッフセクション
+  sr.reveal(".staff__header", { delay: 100 });
+  sr.reveal(".staff__message", { delay: 200 });
+  sr.reveal(".staff-card", { interval: 150, delay: 300 });
+
+  // 活動報告セクション
+  sr.reveal(".activity-item", { interval: 150 });
+
+  // アクセスセクション
+  sr.reveal(".access__map", { delay: 100 });
+  sr.reveal(".access__item", { interval: 150, delay: 200 });
+
+  // 募集要項セクション
+  sr.reveal(".accordion__item", { interval: 100 });
+
+  // コンタクトセクション
+  sr.reveal(".contact__form", { delay: 100 });
+  sr.reveal(".contact-method", { interval: 150, delay: 200 });
+
+  // フッター
+  sr.reveal(".footer__info", { delay: 100 });
+  sr.reveal(".footer__nav", { delay: 200 });
+  sr.reveal(".footer__sns", { delay: 300 });
+}
+
+/**
+ * ヘッダーのスクロール制御
+ */
+function initHeaderScroll() {
+  const header = document.querySelector(".header");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 100) {
+      header.classList.add("is-scrolled");
+    } else {
+      header.classList.remove("is-scrolled");
+    }
+  });
+}
+
+/**
+ * スムーススクロールの初期化
+ */
+function initSmoothScroll() {
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: "vertical",
+    gestureDirection: "vertical",
     smooth: true,
-    smoothMobile: false,
-    multiplier: 1,
-    lerp: 0.1,
-    getDirection: true,
-    getSpeed: true,
-    scrollFromAnywhere: true,
+    smoothTouch: false,
     touchMultiplier: 2,
-    smartphone: {
-      smooth: false,
-    },
-    tablet: {
-      smooth: false,
-    },
   });
 
-  // スクロールトリガーでLocomotiveScrollを更新
-  scroll.on("scroll", ScrollTrigger.update);
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
 
-  // GSAPスクロールトリガーとLocomotiveScrollを連携
-  ScrollTrigger.scrollerProxy(scrollContainer, {
-    scrollTop(value) {
-      return arguments.length
-        ? scroll.scrollTo(value, 0, 0)
-        : scroll.scroll.instance.scroll.y;
-    },
-    getBoundingClientRect() {
-      return {
-        top: 0,
-        left: 0,
-        width: window.innerWidth,
-        height: window.innerHeight,
-      };
-    },
-    pinType: scrollContainer.style.transform ? "transform" : "fixed",
-  });
-
-  // スクロール位置をアップデート
-  ScrollTrigger.addEventListener("refresh", () => scroll.update());
-
-  // スクロールトリガーをリフレッシュ
-  ScrollTrigger.refresh();
+  requestAnimationFrame(raf);
 
   // アンカーリンクのスムーススクロール
-  document.querySelectorAll("[data-scroll-to]").forEach((anchor) => {
-    anchor.addEventListener("click", (e) => {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute("href"));
-      if (target) {
-        scroll.scrollTo(target);
 
-        // ハンバーガーメニューが開いていたら閉じる
-        const hamburger = document.querySelector(".header__hamburger");
-        const nav = document.querySelector(".header__nav");
-        if (hamburger && hamburger.classList.contains("active")) {
-          hamburger.classList.remove("active");
-          nav.classList.remove("active");
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        lenis.scrollTo(targetElement, {
+          offset: -80,
+          duration: 1.5,
+          easing: (t) => 1 - Math.pow(1 - t, 3),
+        });
+
+        // モバイルメニューが開いている場合は閉じる
+        const hamburger = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        if (hamburger.classList.contains("is-active")) {
+          hamburger.classList.remove("is-active");
+          mobileMenu.classList.remove("is-active");
           document.body.style.overflow = "";
         }
       }
     });
-  });
-
-  // グローバルに保存して他の関数からアクセスできるように
-  window.locomotiveScroll = scroll;
-}
-
-/**
- * GSAPアニメーションの初期化
- */
-function initGSAP() {
-  if (!window.gsap || !window.ScrollTrigger) return;
-
-  // ヒーローセクションのアニメーション
-  gsap.to(".hero__bg", {
-    scale: 1.1,
-    duration: 10,
-    ease: "power1.out",
-  });
-
-  // ヒーロースクロールラインのアニメーション
-  gsap.fromTo(
-    ".hero__scroll",
-    {
-      opacity: 0,
-      y: -20,
-    },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      delay: 2,
-      ease: "power2.out",
-    }
-  );
-
-  // テキストアニメーション関数
-  function animateTextElements(selector, staggerAmount = 0.1) {
-    const elements = document.querySelectorAll(selector);
-
-    if (!elements.length) return;
-
-    elements.forEach((element) => {
-      gsap.fromTo(
-        element,
-        {
-          opacity: 0,
-          y: 30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          delay: 0.5,
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none none",
-          },
-          ease: "power3.out",
-        }
-      );
-    });
-  }
-
-  // 各セクションのテキスト要素アニメーション
-  animateTextElements(".section__title");
-  animateTextElements(".section__subtitle");
-  animateTextElements(".section__text");
-
-  // 画像アニメーション
-  const fadeInImages = document.querySelectorAll(".fade-in-image");
-  fadeInImages.forEach((img) => {
-    gsap.fromTo(
-      img,
-      {
-        opacity: 0,
-        scale: 1.1,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: img,
-          start: "top 85%",
-          end: "bottom 15%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-  });
-}
-
-/**
- * ヘッダーのスクロール処理
- */
-function initHeaderScroll() {
-  const header = document.querySelector(".header");
-  if (!header) return;
-
-  let lastScrollTop = 0;
-
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    // スクロール量に応じてヘッダーの背景色を変更
-    if (scrollTop > 50) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-
-    lastScrollTop = scrollTop;
-  });
-}
-
-/**
- * ハンバーガーメニューの処理
- */
-function initHamburgerMenu() {
-  const hamburger = document.querySelector(".header__hamburger");
-  const nav = document.querySelector(".header__nav");
-  const navItems = document.querySelectorAll(".header__nav-list li");
-
-  if (!hamburger || !nav) return;
-
-  // メニュー項目にstaggerアニメーション用のインデックスを設定
-  navItems.forEach((item, index) => {
-    item.style.setProperty("--i", index);
-  });
-
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    nav.classList.toggle("active");
-
-    // メニュー開閉時に本文のスクロールを制御
-    if (nav.classList.contains("active")) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
   });
 }
 
@@ -247,19 +241,11 @@ function initHamburgerMenu() {
  * Swiperスライダーの初期化
  */
 function initSwipers() {
-  if (!window.Swiper) return;
-
-  // スタッフ紹介スライダー
-  const staffSwiper = new Swiper(".staff-swiper", {
+  // スキルアップセクションのスライダー
+  const skillsSwiper = new Swiper(".skills-swiper", {
     slidesPerView: 1,
-    spaceBetween: 30,
-    centeredSlides: true,
+    spaceBetween: 20,
     loop: true,
-    speed: 800,
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
@@ -273,86 +259,302 @@ function initSwipers() {
       prevEl: ".swiper-button-prev",
     },
     breakpoints: {
-      768: {
+      640: {
         slidesPerView: 2,
-        spaceBetween: 40,
+        spaceBetween: 20,
       },
       1024: {
         slidesPerView: 3,
-        spaceBetween: 50,
-      },
-    },
-  });
-
-  // DISCOVERY スライダー
-  const discoverySwiper = new Swiper(".discovery-swiper", {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    centeredSlides: true,
-    loop: true,
-    speed: 600,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 2,
         spaceBetween: 30,
       },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 40,
+    },
+    on: {
+      init: function () {
+        animateCards(this.slides);
+      },
+      slideChangeTransitionStart: function () {
+        animateCards(this.slides);
       },
     },
   });
+
+  // スライドアニメーション
+  function animateCards(slides) {
+    anime({
+      targets: slides,
+      scale: [0.9, 1],
+      opacity: [0.8, 1],
+      easing: "easeOutExpo",
+      duration: 800,
+      delay: anime.stagger(100),
+    });
+  }
 }
 
 /**
- * Fancyboxギャラリーの初期化
+ * ハンバーガーメニューの制御
  */
-function initFancybox() {
-  if (!window.Fancybox) return;
+function initMobileMenu() {
+  const hamburger = document.querySelector(".hamburger");
+  const mobileMenu = document.querySelector(".mobile-menu");
 
-  Fancybox.bind("[data-fancybox]", {
-    // オプション設定
-    Thumbs: {
-      autoStart: true,
-    },
-    Toolbar: {
-      display: [
-        { id: "prev", position: "center" },
-        { id: "counter", position: "center" },
-        { id: "next", position: "center" },
-        "zoom",
-        "slideshow",
-        "fullscreen",
-        "close",
-      ],
-    },
+  hamburger.addEventListener("click", function () {
+    this.classList.toggle("is-active");
+    mobileMenu.classList.toggle("is-active");
+
+    // メニュー展開時に背景スクロールを防止
+    if (this.classList.contains("is-active")) {
+      document.body.style.overflow = "hidden";
+
+      // メニュー項目のアニメーション
+      anime({
+        targets: ".mobile-menu__list li",
+        translateY: [20, 0],
+        opacity: [0, 1],
+        duration: 500,
+        delay: anime.stagger(100),
+        easing: "easeOutQuad",
+      });
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // アクセシビリティ
+    this.setAttribute("aria-expanded", this.classList.contains("is-active"));
   });
 }
 
 /**
- * フォーム送信処理
+ * アコーディオンの制御
  */
-document.addEventListener("submit", (e) => {
-  const form = e.target;
+function initAccordion() {
+  const accordionItems = document.querySelectorAll(".accordion__item");
 
-  // お問い合わせフォームかどうかをチェック
-  if (form.classList.contains("contact-form")) {
+  accordionItems.forEach((item) => {
+    const header = item.querySelector(".accordion__header");
+
+    header.addEventListener("click", function () {
+      // 現在の状態を取得
+      const isActive = item.classList.contains("is-active");
+
+      // すべてのアイテムをクローズ
+      accordionItems.forEach((i) => i.classList.remove("is-active"));
+
+      // クリックされたアイテムをトグル
+      if (!isActive) {
+        item.classList.add("is-active");
+
+        // アコーディオンの内容をアニメーション
+        anime({
+          targets: item.querySelector(".accordion__content"),
+          height: [0, item.querySelector(".accordion__content").scrollHeight],
+          duration: 300,
+          easing: "easeOutQuad",
+        });
+      }
+    });
+  });
+}
+
+/**
+ * アクティビティフィルター
+ */
+function initActivityFilter() {
+  const filterBtns = document.querySelectorAll(".activities__filter-btn");
+  const activityItems = document.querySelectorAll(".activity-item");
+
+  // 初期状態ですべてのボタンをアクティブ
+  document
+    .querySelector('.activities__filter-btn[data-filter="all"]')
+    .classList.add("is-active");
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const filterValue = this.getAttribute("data-filter");
+
+      // フィルターボタンのアクティブ状態を更新
+      filterBtns.forEach((b) => b.classList.remove("is-active"));
+      this.classList.add("is-active");
+
+      // アクティビティアイテムを表示/非表示
+      activityItems.forEach((item) => {
+        if (
+          filterValue === "all" ||
+          item.getAttribute("data-category") === filterValue
+        ) {
+          item.style.display = "flex";
+          anime({
+            targets: item,
+            opacity: [0, 1],
+            translateY: [20, 0],
+            duration: 500,
+            easing: "easeOutQuad",
+          });
+        } else {
+          anime({
+            targets: item,
+            opacity: 0,
+            translateY: 20,
+            duration: 300,
+            easing: "easeOutQuad",
+            complete: function () {
+              item.style.display = "none";
+            },
+          });
+        }
+      });
+    });
+  });
+}
+
+/**
+ * ページトップへ戻るボタン
+ */
+function initPageTopButton() {
+  const pageTopBtn = document.querySelector(".page-top");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 300) {
+      pageTopBtn.classList.add("show");
+    } else {
+      pageTopBtn.classList.remove("show");
+    }
+  });
+
+  pageTopBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
+
+/**
+ * ヒーローセクションのタイトルアニメーション
+ */
+anime
+  .timeline({
+    easing: "easeOutExpo",
+  })
+  .add({
+    targets: ".hero__title .char",
+    opacity: [0, 1],
+    translateY: [40, 0],
+    duration: 1200,
+    delay: (el, i) => 300 + i * 30,
+  })
+  .add(
+    {
+      targets: ".hero__subtitle",
+      opacity: [0, 1],
+      translateY: [20, 0],
+      duration: 800,
+    },
+    "-=800"
+  )
+  .add(
+    {
+      targets: ".hero__buttons",
+      opacity: [0, 1],
+      translateY: [20, 0],
+      duration: 800,
+    },
+    "-=600"
+  );
+
+// フォームのバリデーションとアニメーション
+if (document.querySelector(".form")) {
+  const form = document.querySelector(".form");
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // 入力値の取得
-    const formData = new FormData(form);
+    // 簡易バリデーション
+    let isValid = true;
+    const requiredFields = this.querySelectorAll("[required]");
 
-    // ここにフォーム送信処理を記述
-    // この例では送信成功のアラートを表示
-    setTimeout(() => {
-      alert(
-        "お問い合わせを受け付けました。\n担当者より折り返しご連絡いたします。"
-      );
-      form.reset();
-    }, 1000);
-  }
-});
+    requiredFields.forEach((field) => {
+      if (!field.value.trim()) {
+        isValid = false;
+        field.classList.add("is-invalid");
+
+        // エラーエフェクト
+        anime({
+          targets: field,
+          translateX: [
+            { value: -5, duration: 50, easing: "easeInOutQuad" },
+            { value: 5, duration: 50, easing: "easeInOutQuad" },
+            { value: -5, duration: 50, easing: "easeInOutQuad" },
+            { value: 5, duration: 50, easing: "easeInOutQuad" },
+            { value: 0, duration: 50, easing: "easeInOutQuad" },
+          ],
+          borderColor: ["#e53935", "#e53935", field.style.borderColor],
+          duration: 800,
+        });
+      } else {
+        field.classList.remove("is-invalid");
+      }
+    });
+
+    if (isValid) {
+      // 送信成功アニメーション
+      anime({
+        targets: this.querySelector(".form__submit"),
+        scale: [1, 1.1, 1],
+        backgroundColor: ["#006241", "#4CAF50", "#006241"],
+        duration: 800,
+        easing: "easeInOutBack",
+      });
+
+      // ここにAjax送信処理を記述
+      console.log("フォーム送信");
+
+      // 送信完了メッセージ
+      const formMsg = document.createElement("div");
+      formMsg.className = "form__message";
+      formMsg.innerHTML = "<p>送信が完了しました。ありがとうございます。</p>";
+      this.appendChild(formMsg);
+
+      anime({
+        targets: formMsg,
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 500,
+        easing: "easeOutQuad",
+      });
+
+      // フォームをリセット
+      this.reset();
+    }
+  });
+}
+
+// 画像の遅延読み込み
+if ("IntersectionObserver" in window) {
+  const lazyImages = document.querySelectorAll("img[data-src]");
+
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const image = entry.target;
+        image.src = image.dataset.src;
+
+        image.onload = () => {
+          image.removeAttribute("data-src");
+          anime({
+            targets: image,
+            opacity: [0, 1],
+            duration: 800,
+            easing: "easeOutQuad",
+          });
+        };
+
+        imageObserver.unobserve(image);
+      }
+    });
+  });
+
+  lazyImages.forEach((image) => {
+    imageObserver.observe(image);
+  });
+}
