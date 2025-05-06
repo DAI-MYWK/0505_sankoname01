@@ -9,6 +9,7 @@
       content="大阪府守口市の就労継続支援B型事業所。障がいのある方が自分のペースで働ける場所です。見学・体験随時受付中！"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/hero-enhanced.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <link
       rel="stylesheet"
@@ -47,33 +48,51 @@
       </div>
     </header>
 
-    <!-- メインビジュアル -->
+    <!-- メインビジュアル（強化版） -->
     <section class="hero">
-      <div class="hero-img">
-        <picture>
-          <source
-            media="(max-width: 767px)"
-            srcset="img/A caring female staff member smiling and guiding02.jpg"
-          />
-          <img
-            src="img/A caring female staff member smiling and guiding01.jpg"
-            alt="株式会社サンコーネーム 就労継続支援B型事業所"
-          />
-        </picture>
-        <div class="hero-content">
-          <h2 class="hero-title" data-aos="fade-up" data-aos-delay="300">
-            "働く"も"居場所"も、<br />この場所から始まる。
-          </h2>
-          <p class="hero-text" data-aos="fade-up" data-aos-delay="600">
-            障がいのある方が、自分のペースで無理なく過ごせる場所。<br />
-            軽作業を通じて、生活リズムの安定と就労への一歩を支援します。
-          </p>
-          <div class="hero-btns" data-aos="fade-up" data-aos-delay="900">
-            <a href="#contact" class="btn-primary">見学予約</a>
-            <a href="#contact" class="btn-secondary">資料請求</a>
-            <a href="#contact" class="btn-secondary">お問い合わせ</a>
+      <div class="hero-slider">
+        <div class="hero-slide active">
+          <div class="hero-img">
+            <img
+              src="img/A caring female staff member smiling and guiding01.jpg"
+              alt="株式会社サンコーネーム 就労継続支援B型事業所"
+            />
           </div>
         </div>
+        <div class="hero-slide">
+          <div class="hero-img">
+            <img
+              src="img/spacious room inside a supportive workplace.jpg"
+              alt="サポート環境が整った広々とした作業スペース"
+            />
+          </div>
+        </div>
+        <div class="hero-slide">
+          <div class="hero-img">
+            <img
+              src="img/A cozy break area in a disability support facility01.jpg"
+              alt="くつろげる休憩スペース"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="hero-content">
+        <h2 class="hero-title" data-aos="fade-up" data-aos-delay="300">
+          "働く"も"居場所"も、<br />この場所から始まる。
+        </h2>
+        <p class="hero-text" data-aos="fade-up" data-aos-delay="600">
+          障がいのある方が、自分のペースで無理なく過ごせる場所。<br />
+          軽作業を通じて、生活リズムの安定と就労への一歩を支援します。
+        </p>
+        <div class="hero-btns" data-aos="fade-up" data-aos-delay="900">
+          <a href="#contact" class="btn-primary">見学予約</a>
+          <a href="#contact" class="btn-secondary">資料請求</a>
+          <a href="#contact" class="btn-secondary">お問い合わせ</a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>詳しく見る</span>
+        <div class="hero-scroll-icon"></div>
       </div>
     </section>
 
@@ -554,5 +573,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/hero-enhanced.js"></script>
   </body>
 </html>
